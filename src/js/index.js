@@ -10,18 +10,30 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
+  let role = `<h2>Web Developer</h2>`;
+  if (variables.role == "Technical Writter")
+    role = `<h2>Technical Writter</h2>`;
+
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
+          <h1>${variables.name} ${variables.lastname}</h1>
           <h2>Web Developer</h2>
           <h3>Miami, USA</h3>
           <ul class="position-right">
-            <li><a href="https://twitter.com/alesanchezr"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://github.com/alesanchezr"><i class="fa fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/alesanchezr"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/alesanchezr"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="https://twitter.com/${
+              variables.twitter
+            }"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${
+              variables.github
+            }"><i class="fa fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/${
+              variables.linkedin
+            }"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${
+              variables.instagram
+            }"><i class="fa fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
@@ -41,12 +53,12 @@ window.onload = function() {
     // social media bar position (left or right)
     socialMediaPosition: "left",
     // social media usernames
-    twitter: null,
+    twitter: "alesanchezr",
     github: "alesanchezr",
-    linkedin: null,
-    instagram: null,
-    name: null,
-    lastname: null,
+    linkedin: "alesanchezr",
+    instagram: "alesanchezr",
+    name: "Your Name",
+    lastname: "Your Lastname",
     role: null,
     country: null,
     city: null
